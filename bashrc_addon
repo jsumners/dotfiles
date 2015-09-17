@@ -1,0 +1,100 @@
+### Personal customizations ###
+function loadkey() {
+  cat $2 | ssh $1 "cat - >> .ssh/authorized_keys"
+}
+
+#JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_25.jdk/Contents/Home"
+#export JAVA_HOME
+
+SCALA_HOME="${HOME}/JavaDev/scala"
+export SCALA_HOME
+
+#GROOVY_HOME="${HOME}/JavaDev/groovy"
+#export GROOVY_HOME
+
+#GRAILS_HOME="${HOME}/JavaDev/grails"
+#export GRAILS_HOME
+
+#GRADLE_HOME="${HOME}/JavaDev/gradle"
+#export GRADLE_HOME
+
+M2_HOME="${HOME}/JavaDev/maven"
+export M2_HOME
+
+ANT_HOME="${HOME}/JavaDev/ant"
+export ANT_HOME
+
+PATH=${HOME}/bin:${PATH}
+PATH=${SCALA_HOME}/bin:${PATH}
+#PATH=${GROOVY_HOME}/bin:${PATH}
+#PATH=${GRAILS_HOME}/bin:${PATH}
+#PATH=${GRADLE_HOME}/bin:${PATH}
+PATH=${M2_HOME}/bin:${PATH}
+PATH=${ANT_HOME}/bin:${PATH}
+PATH=${HOME}/opt/local/bin:${PATH}
+PATH=${HOME}/usr/local/mysql/bin:${PATH}
+#PATH=${HOME}/local/node/bin:${PATH}
+PATH=${HOME}/Oracle/instantclient:${PATH}
+PATH=./node_modules/.bin:${PATH}
+export PATH
+
+#NODE_PATH=${HOME}/local/node:${HOME}/local/node/lib/node_modules
+#export NODE_PATH
+
+# Oracle stuff
+DYLD_LIBRARY_PATH=${HOME}/Oracle/instantclient/
+export DYLD_LIBRARY_PATH
+SQLPATH=${HOME}/Oracle/instantclient
+ORACLE_HOME=${SQLPATH}
+TNS_ADMIN=${ORACLE_HOME}
+export SQLPATH ORACLE_HOME TNS_ADMIN
+
+alias ls='ls -G'
+
+[ -e "`which most 2> /dev/null`" ] && export PAGER='most'
+[ -e "`which vim 2> /dev/null`" ] && export EDITOR='vim'
+
+##################################################
+# The home directory (HOME) is replaced with a ~
+# The last pwdmaxlen characters of the PWD are displayed
+# Leading partial directory names are striped off
+# /home/me/stuff          -> ~/stuff               if USER=me
+# /usr/share/big_dir_name -> ../share/big_dir_name if pwdmaxlen=20
+##################################################
+function bash_prompt_command() {
+    # How many characters of the $PWD should be kept
+    local pwdmaxlen=25
+    # Indicate that there has been dir truncation
+    local trunc_symbol=".."
+    local dir=${PWD##*/}
+    pwdmaxlen=$(( ( pwdmaxlen < ${#dir} ) ? ${#dir} : pwdmaxlen ))
+    NEW_PWD=${PWD/#$HOME/\~}
+    local pwdoffset=$(( ${#NEW_PWD} - pwdmaxlen ))
+    if [ ${pwdoffset} -gt "0" ]
+    then
+        NEW_PWD=${NEW_PWD:$pwdoffset:$pwdmaxlen}
+        NEW_PWD=${trunc_symbol}/${NEW_PWD#*/}
+    fi
+
+    export NEW_PWD
+}
+
+PROMPT_COMMAND=bash_prompt_command
+# Color chart @ http://wiki.archlinux.org/index.php/Color_Bash_Prompt
+case "${TERM}" in
+    "xterm")
+        TITLEBAR='\[\033]0;\u@\h > ${NEW_PWD}\007\]'
+        PS1="${TITLEBAR}\[\e[1;32m\][\[\e[0;36m\]\u\[\e[1;32m\]@\[\e[1;33m\]\h\[\e[1;32m\]] \[\e[0;37m\]\${NEW_PWD}/ \[\e[1;32m\]\$ \[\e[0m\]"
+        ;;
+    "screen")
+        TITLEBAR='\033_\u@\h > ${NEW_PWD}\033\\'
+		ESC='\[\ek\]\[\e\\\]'
+        PS1="\[\e[1;32m\][\[\e[0;36m\]\u\[\e[1;32m\]] \[\e[0;37m\]\${NEW_PWD}/ \[\e[1;32m\]\$\[\e[0m\] ${ESC}"
+        ;;
+    *)
+PS1="\[\e[1;32m\][\[\e[0;36m\]\u\[\e[1;32m\]@\[\e[1;33m\]\h\[\e[1;32m\]] \[\e[0;37m\]\${NEW_PWD}/ \[\e[1;32m\]\$ \[\e[0m\]"
+    ;;
+esac
+
+shopt -s checkwinsize
+

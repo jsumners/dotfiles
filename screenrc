@@ -1,0 +1,15 @@
+defscrollback 5000
+
+vbell off
+startup_message off
+hardstatus alwayslastline
+hardstatus string '%{= kg}[%{Y}%H%{g}][%= %{= kw}%?%-Lw%?%{=b kR}(%{W}%n-%t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{g}][%{Y}%l%{g}]%{g}[%{B}%m.%d.%Y %{G}%c%{g}]'
+termcapinfo xterm|xterms|xs|rxvt ti@:te@
+termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+
+altscreen on
+shelltitle '$ |bash'
+
+# Binds
+bind s split
+bind S remove
