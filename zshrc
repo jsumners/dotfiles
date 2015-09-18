@@ -53,21 +53,28 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=(git git-flow macports nodejs npm)
 
 # User configuration
+
+# Do this before potential overrides
+source ${ZSH}/oh-my-zsh.sh
+
+### Exports ###
+export LANG=en_US.UTF-8
+
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin:/Users/jsumners/bin"
 export PATH="/opt/local/bin:${PATH}"
 
 export MANPATH="/usr/local/man:/opt/local/man:${MANPATH}"
 
-# Do this before potential overrides
-source ${ZSH}/oh-my-zsh.sh
-
-export LANG=en_US.UTF-8
-
 export EDITOR='vim'
 export PAGER='most'
 
+### Aliases ###
+alias pg_start='sudo su - postgres -c "/opt/local/lib/postgresql94/bin/pg_ctl start -D /opt/local/var/db/postgresql94/defaultdb -l /tmp/postgresql.log"'
+alias pg_stop='sudo su - postgres -c "/opt/local/lib/postgresql94/bin/pg_ctl stop -D /opt/local/var/db/postgresql94/defaultdb"'
+alias tmux='TERM=screen-256color-bce tmux -2'
 alias screen='tmux'
 
+### Functions ###
 function loadkey() {
   if [[ ! "$1" || ! "$2" ]]; then
     echo "loadkey some.host key_to_load.pub"
@@ -78,6 +85,7 @@ function loadkey() {
   cat $2 | ssh $1 "cat - >> .ssh/authorized_keys"
 }
 
+### Theme ###
 function _get_prompt() {
   typeset p=""
   if [[ $(id -u) -eq 0 ]]; then
