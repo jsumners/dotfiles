@@ -1,0 +1,11 @@
+#!/usr/bin/env ${SHELL}
+
+export LANG=en_US.UTF-8
+
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin:/Users/jsumners/bin"
+export PATH="/opt/local/bin:${PATH}"
+
+export MANPATH="/usr/local/man:/opt/local/man:${MANPATH}"
+
+export EDITOR='vim'
+export PAGER='most'

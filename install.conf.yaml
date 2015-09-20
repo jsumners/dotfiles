@@ -16,6 +16,12 @@
     ~/.screenrc:
       force: true
       path: screenrc
+    ~/.shell_aliases:
+      force: true
+      path: shell_aliases
+    ~/.shell_exports:
+      force: true
+      path: shell_exports
     ~/.tmux.conf:
       force: true
       path: tmux.conf

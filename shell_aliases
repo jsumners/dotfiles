@@ -1,0 +1,18 @@
+#!/usr/bin/env ${SHELL}
+
+# nginx
+alias nginx_start='sudo launchctl load -w /Library/LaunchDaemons/org.macports.nginx.plist'
+alias nginx_stop='sudo launchctl unload -w /Library/LaunchDaemons/org.macports.nginx.plist'
+alias nginx_restart='nginx_stop; nginx_start;'
+
+# php-fpm
+alias fpm_start='sudo launchctl load -w /Library/LaunchDaemons/org.macports.php55-fpm.plist'
+alias fpm_stop='sudo launchctl unload -w /Library/LaunchDaemons/org.macports.php55-fpm.plist'
+alias fpm_restart='fpm_stop; fpm_start;'
+
+# postgresql
+alias pg_start='sudo su - postgres -c "/opt/local/lib/postgresql94/bin/pg_ctl start -D /opt/local/var/db/postgresql94/defaultdb -l /tmp/postgresql.log"'
+alias pg_stop='sudo su - postgres -c "/opt/local/lib/postgresql94/bin/pg_ctl stop -D /opt/local/var/db/postgresql94/defaultdb"'
+
+alias tmux='TERM=screen-256color-bce tmux -2'
+alias screen='tmux'
