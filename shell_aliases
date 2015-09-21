@@ -16,3 +16,7 @@ alias pg_stop='sudo su - postgres -c "/opt/local/lib/postgresql94/bin/pg_ctl sto
 
 alias tmux='TERM=screen-256color-bce tmux -2'
 alias screen='tmux'
+
+if [[ "${SHELL:(-3)}" == "zsh" ]]; then
+  alias gulp='nocorrect gulp'
+fi
