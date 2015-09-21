@@ -24,12 +24,5 @@ if [ -f ${HOME}/.bashrc_addon ]; then
 	source ${HOME}/.bashrc_addon
 fi
 
-PAGER=/opt/local/bin/most
-export PAGER
-
-alias pg_start='sudo su - postgres -c "/opt/local/lib/postgresql94/bin/pg_ctl start -D /opt/local/var/db/postgresql94/defaultdb -l /tmp/postgresql.log"'
-alias pg_stop='sudo su - postgres -c "/opt/local/lib/postgresql94/bin/pg_ctl stop -D /opt/local/var/db/postgresql94/defaultdb"'
-alias tmux='TERM=screen-256color-bce tmux -2'
-
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/Users/jsumners/.gvm/bin/gvm-init.sh" ]] && source "/Users/jsumners/.gvm/bin/gvm-init.sh"
+source ~/.shell_exports
+source ~/.shell_aliases
