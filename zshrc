@@ -107,13 +107,15 @@ function _git_status() {
   echo $s
 }
 
+# ZSH_THEME_GIT_PROMPT_BEHIND_REMOTE="↓"
+# ZSH_THEME_GIT_PROMPT_AHEAD_REMOTE="↑"
+# ZSH_THEME_GIT_PROMPT_DIVERGED_REMOTE="↕"
 ZSH_THEME_GIT_PROMPT_PREFIX="%{%F{005}<git:(%F{004}%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{%F{005})>%f%}"
 ZSH_THEME_GIT_PROMPT_DIRTY=" %{%F{red}%}*%{%f%k%b%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
-
 PROMPT='
-%B%{%F{002}[%F{006}%n%F{002}@%F{003}%m%F{002}]%} %{%F{007}%7(c:%-3~/…/%3~:%~)%} $(_git_status)
+%B%{%F{002}[%F{006}%n%F{002}@%F{003}%m%F{002}]%} %{%F{007}%7(c:%-3~/…/%3~:%~)%} $(_git_status)%{$(git_prompt_ahead)$(git_prompt_behind)%}
 $(_get_prompt) %b%f'
 
 RPROMPT='%F{008}[s:%? l:%h]%f'
