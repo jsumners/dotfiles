@@ -10,3 +10,11 @@ export MANPATH="/usr/local/man:/opt/local/man:${MANPATH}"
 
 export EDITOR='vim'
 export PAGER='most'
+
+if [ -d ~/oracle -a -d ~/oracle/instantclient ]; then
+  export DYLD_LIBRARY_PATH=~/oracle/instantclient:$DYLD_LIBRARY_PATH
+  export SQLPATH="${HOME}/oracle/instantclient"
+  export PATH="${SQLPATH}:${PATH}"
+  export ORACLE_HOME="${SQLPATH}"
+  export TNS_ADMIN="${SQLPATH}"
+fi
