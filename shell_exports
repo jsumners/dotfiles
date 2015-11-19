@@ -18,3 +18,8 @@ if [ -d ~/oracle -a -d ~/oracle/instantclient ]; then
   export ORACLE_HOME="${SQLPATH}"
   export TNS_ADMIN="${SQLPATH}"
 fi
+
+if [ -d ~/n/bin -a -x ~/n/bin/n ]; then
+  export N_PREFIX=${HOME}/n
+  export PATH="${HOME}/n/bin:${PATH}"
+fi
