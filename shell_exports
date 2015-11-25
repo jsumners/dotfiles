@@ -23,3 +23,8 @@ if [ -d ~/n/bin -a -x ~/n/bin/n ]; then
   export N_PREFIX=${HOME}/n
   export PATH="${HOME}/n/bin:${PATH}"
 fi
+
+if [ -d ~/JavaDev/maven ]; then
+  export M2_HOME="${HOME}/JavaDev/maven"
+  export PATH="${M2_HOME}/bin:${PATH}"
+fi
