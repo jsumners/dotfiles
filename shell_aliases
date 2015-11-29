@@ -1,6 +1,6 @@
 #!/usr/bin/env ${SHELL}
 
-alias ls='ls --color=always'
+[[ $(ls --color=always 2>/dev/null) ]] && alias ls='ls --color=always'
 [[ $(type vim) ]] && alias vi='vim'
 
 # nginx
