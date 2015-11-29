@@ -1,5 +1,8 @@
 #!/usr/bin/env ${SHELL}
 
+alias ls='ls --color=always'
+[[ $(type vim) ]] && alias vi='vim'
+
 # nginx
 alias nginx_start='sudo launchctl load -w /Library/LaunchDaemons/org.macports.nginx.plist'
 alias nginx_stop='sudo launchctl unload -w /Library/LaunchDaemons/org.macports.nginx.plist'
