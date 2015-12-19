@@ -1,3 +1,8 @@
+WD=$(pwd)
+cd ~/.dotfiles
+git pull --rebase --stat origin master
+cd ${WD}
+
 # Path to your oh-my-zsh installation.
 export ZSH=${HOME}/.oh-my-zsh
 
