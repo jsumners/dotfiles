@@ -1,6 +1,6 @@
 WD=$(pwd)
 cd ~/.dotfiles
-git pull --rebase --stat origin master
+git pull --stat origin master
 cd ${WD}
 
 # Path to your oh-my-zsh installation.
