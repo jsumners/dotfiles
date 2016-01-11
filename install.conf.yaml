@@ -34,3 +34,6 @@
     ~/.oh-my-zsh:
       force: true
       path: oh-my-zsh/
+    ~/.zsh-syntax:
+      force: true
+      path: zsh-syntax-highlighting-filetypes/zsh-syntax-highlighting-filetypes.zsh

@@ -110,3 +110,6 @@ PROMPT='
 $(_get_prompt) %b%f'
 
 RPROMPT='%F{008}[s:%? l:%h]%f'
+
+# load pretty colors
+[ -e ~/.zsh-syntax ] && source ~/.zsh-syntax
