@@ -1,7 +1,4 @@
-WD=$(pwd)
-cd ~/.dotfiles
-git pull --stat origin master
-cd ${WD}
+zsh ~/.dotfiles/check_update.zsh
 
 # Path to your oh-my-zsh installation.
 export ZSH=${HOME}/.oh-my-zsh
