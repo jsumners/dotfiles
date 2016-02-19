@@ -29,3 +29,7 @@ if [ -d ~/JavaDev/maven ]; then
   export M2_HOME="${HOME}/JavaDev/maven"
   export PATH="${M2_HOME}/bin:${PATH}"
 fi
+
+if [ -f ~/.local_exports ]; then
+  source ~/.local_exports
+fi
