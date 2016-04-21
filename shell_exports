@@ -13,7 +13,14 @@ export EDITOR='vim'
 export PAGER='most'
 
 if type go > /dev/null; then
-  export GOPATH=$(dirname $(whence -c go))
+  gopath=$(dirname $(whence -c go))
+  if [ "${gopath}" == "/opt/local/bin" ]; then # macports
+    # http://cheatsheet.logicalwebhost.com/go-language-howto/
+    export GOROOT=/opt/local/lib/go
+    export PATH=$PATH:$GOROOT/bin
+    export GOPATH=~/go
+    export PATH=$PATH:$GOPATH/bin
+  fi
 fi
 
 if [ -d ~/oracle -a -d ~/oracle/instantclient ]; then
