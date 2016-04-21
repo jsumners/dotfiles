@@ -113,3 +113,12 @@ RPROMPT='%F{008}[s:%? l:%h]%f'
 
 # load pretty colors
 [ -e ~/.zsh-syntax ] && source ~/.zsh-syntax
+
+# setup help files for builtins
+# http://zsh.sourceforge.net/Doc/Release/User-Contributions.html#Accessing-On_002dLine-Help
+helpdir=$(find /opt/local -type d -path '*share/zsh/*/help' 2>/dev/null)
+if [ "${helpdir}" != "" ]; then
+  HELPDIR=$helpdir
+  unalias run-help
+  autoload run-help
+fi
