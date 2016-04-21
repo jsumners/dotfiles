@@ -12,6 +12,10 @@ export MANPATH="/usr/local/man:/opt/local/man:${MANPATH}"
 export EDITOR='vim'
 export PAGER='most'
 
+if type go > /dev/null; then
+  export GOPATH=$(dirname $(whence -c go))
+fi
+
 if [ -d ~/oracle -a -d ~/oracle/instantclient ]; then
   export DYLD_LIBRARY_PATH=~/oracle/instantclient:$DYLD_LIBRARY_PATH
   export SQLPATH="${HOME}/oracle/instantclient"
