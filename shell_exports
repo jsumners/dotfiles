@@ -14,7 +14,7 @@ export PAGER='most'
 
 if type go > /dev/null; then
   gopath=$(dirname $(whence -c go))
-  if [ "${gopath}" == "/opt/local/bin" ]; then # macports
+  if [ "${gopath}" = "/opt/local/bin" ]; then # macports
     # http://cheatsheet.logicalwebhost.com/go-language-howto/
     export GOROOT=/opt/local/lib/go
     export PATH=$PATH:$GOROOT/bin
