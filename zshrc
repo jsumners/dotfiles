@@ -1,5 +1,3 @@
-zsh ~/.dotfiles/check_update.zsh
-
 # Path to your oh-my-zsh installation.
 export ZSH=${HOME}/.oh-my-zsh
 
@@ -64,6 +62,11 @@ source ${ZSH}/oh-my-zsh.sh
 
 source ~/.shell_exports
 source ~/.shell_aliases
+
+# Check for updates after reading exports because HTTP/S proxies may be
+# set via local exports.
+zsh ~/.dotfiles/check_update.zsh
+
 
 ### Functions ###
 function loadkey() {
