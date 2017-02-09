@@ -56,12 +56,11 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=(git git-flow macports nodejs npm)
 
 # User configuration
+source ~/.shell_exports
+source ~/.shell_aliases
 
 # Do this before potential overrides
 source ${ZSH}/oh-my-zsh.sh
-
-source ~/.shell_exports
-source ~/.shell_aliases
 
 # Check for updates after reading exports because HTTP/S proxies may be
 # set via local exports.
