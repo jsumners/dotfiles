@@ -20,6 +20,9 @@ alias pg_stop='sudo -u postgres /opt/local/lib/postgresql94/bin/pg_ctl stop -D /
 alias tmux='TERM=screen-256color-bce tmux -2'
 alias screen='tmux'
 
+# flush dns cache
+[[ $(type dscacheutil) ]] && alias flushcache='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;say cache flushed'
+
 if [[ "${SHELL:(-3)}" == "zsh" ]]; then
   alias gulp='nocorrect gulp'
 fi
