@@ -41,6 +41,14 @@ if [ -d ~/JavaDev/maven ]; then
   export PATH="${M2_HOME}/bin:${PATH}"
 fi
 
+if [ -d /usr/local/texlive ]; then
+  texdirs=($(ls -d /usr/local/texlive/*/))
+  currtexdir=$(echo ${texdirs[${#texdirs[@]}]})
+  if [ -d ${currtexdir}/bin/x86_64-darwin ]; then
+    export PATH=${currtexdir}/bin/x86_64-darwin:${PATH}
+  fi
+fi
+
 if [ -f ~/.local_exports ]; then
   source ~/.local_exports
 fi
