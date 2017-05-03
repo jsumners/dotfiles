@@ -12,7 +12,8 @@ endif
 
 " Custom Settings
 syntax on
-set cindent " smarter smartindent
+"set cindent " smarter smartindent
+set autoindent " basic autoindentation
 set expandtab " tabs to spaces
 set tabstop=2 " instead of 8
 set shiftwidth=2 " instead of 8
@@ -25,3 +26,26 @@ set hlsearch " highlight searches
 set ruler " display line,col in lower right
 set scrolloff=3 " show some context at the bottom of the screen
 set backspace=indent,eol,start " backspace over everything in insert mode
+
+if exists('+colorcolumn')
+  set colorcolumn=80,120
+  let s:color_column_old = 0
+  function! s:ToggleColorColumn()
+    if s:color_column_old == 0
+      let s:color_column_old = &colorcolumn
+      windo let &colorcolumn = 0
+    else
+      windo let &colorcolumn = s:color_column_old
+      let s:color_column_old = 0
+    endif
+  endfunction
+  " toggle with `\ co`
+  nnoremap <Leader>co :call <SID>ToggleColorColumn()<cr>
+endif
+
+
+set number
+set numberwidth=3
+highlight LineNr ctermfg=grey
+" toggle with `\ ln`
+nnoremap <Leader>l :set number!<cr>
