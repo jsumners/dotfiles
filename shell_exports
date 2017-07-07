@@ -49,6 +49,10 @@ if [ -d /usr/local/texlive ]; then
   fi
 fi
 
+if [ -d /opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/ ]; then
+  export PATH=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/:${PATH}
+fi
+
 if [ -f ~/.local_exports ]; then
   source ~/.local_exports
 fi
