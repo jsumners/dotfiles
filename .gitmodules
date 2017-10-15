@@ -7,3 +7,6 @@
 [submodule "zsh-syntax-highlighter"]
 	path = zsh-syntax-highlighting-filetypes
 	url = https://github.com/trapd00r/zsh-syntax-highlighting-filetypes.git
+[submodule "fzf"]
+	path = fzf
+	url = https://github.com/junegunn/fzf.git

@@ -24,5 +24,5 @@ if [ -f ${HOME}/.bashrc_addon ]; then
 	source ${HOME}/.bashrc_addon
 fi
 
-source ~/.shell_exports
+#source ~/.shell_exports
 source ~/.shell_aliases
