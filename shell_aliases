@@ -25,6 +25,7 @@ alias screen='tmux'
 
 if [[ "${SHELL:(-3)}" == "zsh" ]]; then
   alias gulp='nocorrect gulp'
+  alias help='man zshbuiltins'
 fi
 
 if [ -f ~/.local_aliases ]; then
