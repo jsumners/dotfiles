@@ -42,3 +42,6 @@
     ~/.zsh-syntax:
       force: true
       path: zsh-syntax-highlighting-filetypes/zsh-syntax-highlighting-filetypes.zsh
+    ~/.git-user-config.json:
+      force: true
+      path: git-user-config.json
