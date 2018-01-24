@@ -37,6 +37,8 @@ if [ -d ~/oracle -a -d ~/oracle/instantclient ]; then
   export PATH="${SQLPATH}:${PATH}"
   export ORACLE_HOME="${SQLPATH}"
   export TNS_ADMIN="${SQLPATH}"
+  export OCI_LIB_DIR="${ORACLE_HOME}"
+  export OCI_INC_DIR="${ORACLE_HOME}/sdk/include"
 fi
 
 if [ -d ~/n/bin -a -x ~/n/bin/n ]; then
