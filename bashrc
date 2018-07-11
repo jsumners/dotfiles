@@ -26,3 +26,5 @@ fi
 
 #source ~/.shell_exports
 source ~/.shell_aliases
+source ~/.shell_functions
+

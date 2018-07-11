@@ -1,0 +1,19 @@
+#!/usr/bin/env ${SHELL}
+
+# git
+function git-purge() {
+  # https://stackoverflow.com/a/38404202/9789020
+  # TODO: add bash version
+  echo "Warning: continuing will switch to \`master\` branch and dead branches will be forcibly removed."
+  read -s "key?Press any key to continue or Ctrl+C to exit..."
+  if [ -n ${key} ]; then
+    git checkout master && \
+      git fetch -p && \
+      git branch -vv | awk '/: gone]/{print $1}' | \
+      xargs git branch -D
+  fi
+}
+
+if [ -f ~/.local_functions ]; then
+  source ~/.local_functions
+fi

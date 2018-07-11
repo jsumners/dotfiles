@@ -58,6 +58,7 @@ plugins=(git git-flow macports nodejs npm)
 # User configuration
 source ~/.shell_exports
 source ~/.shell_aliases
+source ~/.shell_functions
 
 # Do this before potential overrides
 source ${ZSH}/oh-my-zsh.sh

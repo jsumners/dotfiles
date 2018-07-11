@@ -27,6 +27,9 @@
     ~/.shell_exports:
       force: true
       path: shell_exports
+    ~/.shell_functions:
+      force: true
+      path: shell_functions
     ~/.tmux.conf:
       force: true
       path: tmux.conf
