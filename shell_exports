@@ -31,6 +31,10 @@ elif type go > /dev/null; then
   fi
 fi
 
+if [ -d ~/.cargo ]; then
+  source ~/.cargo/env
+fi
+
 if [ -d ~/oracle -a -d ~/oracle/instantclient ]; then
   export DYLD_LIBRARY_PATH=~/oracle/instantclient:$DYLD_LIBRARY_PATH
   export SQLPATH="${HOME}/oracle/instantclient"
