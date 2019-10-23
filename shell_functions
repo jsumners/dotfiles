@@ -14,6 +14,14 @@ function git-purge() {
   fi
 }
 
+# docker
+function docker-purge-images() {
+  echo "Warning: this will delete all containers and images."
+  read -s "key?Press any key to continue or Ctrl+C to exit..."
+  docker rm $(docker ps -a -q)
+  docker rmi $(docker images -q) --force
+}
+
 if [ -f ~/.local_functions ]; then
   source ~/.local_functions
 fi
