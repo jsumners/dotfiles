@@ -1,0 +1,13 @@
+bat
+git
+gnupg2
+jq
+less
+most
+pandoc
+pstree
+pv
+py-pip
+smartmontools
+texlive-context
+zsh
