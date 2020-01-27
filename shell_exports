@@ -13,6 +13,8 @@ export MANPATH="/usr/local/man:/opt/local/man:${MANPATH}"
 
 export EDITOR='vim'
 export PAGER='most'
+# Do not wrap next value in quotes or "bat" will not interpret correctly
+export BAT_CONFIG_PATH=~/.bat.conf
 
 if [ -d ~/.gvm ]; then
   source ~/.gvm/scripts/gvm

@@ -48,3 +48,7 @@
     ~/.git-user-config.json:
       force: true
       path: git-user-config.json
+    ~/.bat.conf:
+      force: true
+      path: bat.conf
+
