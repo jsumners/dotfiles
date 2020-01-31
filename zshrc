@@ -54,7 +54,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 export FZF_BASE=$(dirname $(readlink ~/.zshrc))/fzf
-plugins=(fzf git git-flow macports node npm)
+plugins=(fzf git)
 
 # User configuration
 source ~/.shell_exports
