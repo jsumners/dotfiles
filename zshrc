@@ -113,8 +113,6 @@ PROMPT='
 %B%F{002}[%F{006}%n%F{002}@%F{003}%m%F{002}] %F{007}%7(c:%-3~/…/%3~:%~) $(_git_status)$(git_prompt_ahead)$(git_prompt_behind)
 $(_get_prompt) %b%f'
 
-RPROMPT='%F{008}[s:%? l:%h]%f'
-
 # load pretty colors
 [ -e ~/.zsh-syntax ] && source ~/.zsh-syntax
 
