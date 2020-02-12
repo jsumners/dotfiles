@@ -7,6 +7,7 @@ export ZSH=${HOME}/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="robbyrussell"
 #ZSH_THEME="blinks"
+ZSH_THEME="spaceship"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -79,37 +80,6 @@ function loadkey() {
   ssh $1 "mkdir .ssh; touch .ssh/authorized_keys; chmod og-rwx .ssh .ssh/authorized_keys"
   cat $2 | ssh $1 "cat - >> .ssh/authorized_keys"
 }
-
-### Theme ###
-function _get_prompt() {
-  typeset p=""
-  if [[ $(id -u) -eq 0 ]]; then
-    p="%F{red}%#%f"
-  else
-    p="%F{002}%#%f"
-  fi
-
-  echo $p
-}
-
-function _git_status() {
-  typeset s=""
-
-  if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
-    s="$(git_prompt_info)"
-  fi
-
-  echo $s
-}
-
-# ZSH_THEME_GIT_PROMPT_PREFIX="%F{005}<git:(%F{004}"
-# ZSH_THEME_GIT_PROMPT_SUFFIX="%F{005})>%f"
-# ZSH_THEME_GIT_PROMPT_DIRTY=" %F{red}*%f%k%b"
-# ZSH_THEME_GIT_PROMPT_CLEAN=""
-# PROMPT='
-# %B%F{002}[%F{006}%n%F{002}@%F{003}%m%F{002}] %F{007}%7(c:%-3~/…/%3~:%~) $(_git_status)$(git_prompt_ahead)$(git_prompt_behind)
-# $(_get_prompt) %b%f'
-ZSH_THEME="spaceship"
 
 # load pretty colors
 [ -e ~/.zsh-syntax ] && source ~/.zsh-syntax
