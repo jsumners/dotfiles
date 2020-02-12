@@ -52,3 +52,7 @@
       force: true
       path: bat.conf
 
+- shell:
+  - ["mkdir -p ~/.oh-my-zsh/custom/themes", "Creating ZSH themes dir"]
+  - ["cd spaceship-prompt && ln -sf $(pwd)/spaceship.zsh ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme", "Installing spaceship-prompt theme"]
+
