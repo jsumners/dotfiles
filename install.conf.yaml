@@ -42,9 +42,6 @@
     ~/.oh-my-zsh:
       force: true
       path: oh-my-zsh
-    ~/.zsh-syntax:
-      force: true
-      path: zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     ~/.git-user-config.json:
       force: true
       path: git-user-config.json
@@ -54,4 +51,12 @@
 
 - create:
   - ~/.oh-my-zsh/custom/themes
+  - ~/.oy-my-zsh/custom/plugins
 
+- link:
+    ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme:
+      force: true
+      path: spaceship-prompt/spaceship.zsh
+    ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting:
+      force: true
+      path: zsh-syntax-highlighting

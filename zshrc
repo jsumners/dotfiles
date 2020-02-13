@@ -68,7 +68,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 export FZF_BASE=$(dirname $(readlink ~/.zshrc))/fzf
-plugins=(fzf git)
+plugins=(fzf git zsh-syntax-highlighting)
 
 # User configuration
 source ~/.shell_exports
@@ -93,9 +93,6 @@ function loadkey() {
   ssh $1 "mkdir .ssh; touch .ssh/authorized_keys; chmod og-rwx .ssh .ssh/authorized_keys"
   cat $2 | ssh $1 "cat - >> .ssh/authorized_keys"
 }
-
-# load pretty colors
-[ -e ~/.zsh-syntax ] && source ~/.zsh-syntax
 
 function _zsh_build_help() {
   # setup help files for builtins
