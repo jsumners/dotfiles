@@ -41,10 +41,10 @@
       path: zshrc
     ~/.oh-my-zsh:
       force: true
-      path: oh-my-zsh/
+      path: oh-my-zsh
     ~/.zsh-syntax:
       force: true
-      path: zsh-syntax-highlighting-filetypes/zsh-syntax-highlighting-filetypes.zsh
+      path: zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     ~/.git-user-config.json:
       force: true
       path: git-user-config.json
@@ -52,7 +52,6 @@
       force: true
       path: bat.conf
 
-- shell:
-  - ["mkdir -p ~/.oh-my-zsh/custom/themes", "Creating ZSH themes dir"]
-  - ["cd spaceship-prompt && ln -sf $(pwd)/spaceship.zsh ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme", "Installing spaceship-prompt theme"]
+- create:
+  - ~/.oh-my-zsh/custom/themes
 
