@@ -57,6 +57,9 @@
     ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme:
       force: true
       path: spaceship-prompt/spaceship.zsh
+    ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions:
+      force: true
+      path: zsh-autosuggestions
     ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting:
       force: true
       path: zsh-syntax-highlighting
