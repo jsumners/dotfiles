@@ -9,6 +9,10 @@ export ZSH=${HOME}/.oh-my-zsh
 #ZSH_THEME="blinks"
 ZSH_THEME="spaceship"
 
+SPACESHIP_CHAR_SYMBOL=❯
+# Technically, I'd like to use \u2006 or \u200A as a suffix, but FiraCode
+# is a monospace font. So they will render in the same width.
+SPACESHIP_CHAR_SUFFIX=$(echo -e '\u200A')
 SPACESHIP_PROMPT_ORDER=(
   user
   dir
