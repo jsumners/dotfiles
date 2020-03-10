@@ -18,7 +18,7 @@ if [ -d ~/.gvm ]; then
   source ~/.gvm/scripts/gvm
   export PATH=$PATH:$GOPATH/bin
 
-  gos=($(ls -1Ar ~/.gvm/gos))
+  gos=($(ls -1A ~/.gvm/gos))
   gvm use ${gos[1]} > /dev/null
 elif type go > /dev/null; then
   gopath=$(dirname $(whence -c go))
