@@ -25,3 +25,8 @@ function docker-purge-images() {
 if [ -f ~/.local_functions ]; then
   source ~/.local_functions
 fi
+
+# port
+function install-base-ports() {
+  sudo port setrequested ~/.dotfiles/ports.requested
+}

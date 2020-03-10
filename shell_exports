@@ -13,6 +13,16 @@ export MANPATH="/usr/local/man:/opt/local/man:${MANPATH}"
 
 export EDITOR='vim'
 export PAGER='most'
+# Do not wrap next value in quotes or "bat" will not interpret correctly
+export BAT_CONFIG_PATH=~/.bat.conf
+
+# https://stackoverflow.com/a/54065289
+if [[ $(type python2) ]]; then
+  export PATH="$(python2 -c 'import site; print(site.USER_BASE)')/bin:${PATH}"
+fi
+if [[ $(type python3) ]]; then
+  export PATH="$(python3 -c 'import site; print(site.USER_BASE)')/bin:${PATH}"
+fi
 
 if [ -d ~/.gvm ]; then
   source ~/.gvm/scripts/gvm
@@ -61,10 +71,6 @@ if [ -d /usr/local/texlive ]; then
   if [ -d ${currtexdir}/bin/x86_64-darwin ]; then
     export PATH=${currtexdir}/bin/x86_64-darwin:${PATH}
   fi
-fi
-
-if [ -d /opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/ ]; then
-  export PATH=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/:${PATH}
 fi
 
 if [ -f ~/.fzf.${SHELL_NAME} ]; then

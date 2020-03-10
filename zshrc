@@ -7,6 +7,24 @@ export ZSH=${HOME}/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="robbyrussell"
 #ZSH_THEME="blinks"
+ZSH_THEME="spaceship"
+
+SPACESHIP_CHAR_SYMBOL=❯
+# Technically, I'd like to use \u2006 or \u200A as a suffix, but FiraCode
+# is a monospace font. So they will render in the same width.
+SPACESHIP_CHAR_SUFFIX=$(echo -e '\u200A')
+SPACESHIP_PROMPT_ORDER=(
+  user
+  dir
+  host
+  git
+  hg
+  exec_time
+  line_sep
+  jobs
+  exit_code
+  char
+)
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -53,7 +71,8 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow macports node npm)
+export FZF_BASE=$(dirname $(readlink ~/.zshrc))/fzf
+plugins=(fzf git zsh-autosuggestions zsh-syntax-highlighting)
 
 # User configuration
 source ~/.shell_exports
@@ -78,44 +97,6 @@ function loadkey() {
   ssh $1 "mkdir .ssh; touch .ssh/authorized_keys; chmod og-rwx .ssh .ssh/authorized_keys"
   cat $2 | ssh $1 "cat - >> .ssh/authorized_keys"
 }
-
-### Theme ###
-function _get_prompt() {
-  typeset p=""
-  if [[ $(id -u) -eq 0 ]]; then
-    p="%F{red}%#%f"
-  else
-    p="%F{002}%#%f"
-  fi
-
-  echo $p
-}
-
-function _git_status() {
-  typeset s=""
-
-  if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
-    s="$(git_prompt_info)"
-  fi
-
-  echo $s
-}
-
-# ZSH_THEME_GIT_PROMPT_BEHIND_REMOTE="↓"
-# ZSH_THEME_GIT_PROMPT_AHEAD_REMOTE="↑"
-# ZSH_THEME_GIT_PROMPT_DIVERGED_REMOTE="↕"
-ZSH_THEME_GIT_PROMPT_PREFIX="%F{005}<git:(%F{004}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%F{005})>%f"
-ZSH_THEME_GIT_PROMPT_DIRTY=" %F{red}*%f%k%b"
-ZSH_THEME_GIT_PROMPT_CLEAN=""
-PROMPT='
-%B%F{002}[%F{006}%n%F{002}@%F{003}%m%F{002}] %F{007}%7(c:%-3~/…/%3~:%~) $(_git_status)$(git_prompt_ahead)$(git_prompt_behind)
-$(_get_prompt) %b%f'
-
-RPROMPT='%F{008}[s:%? l:%h]%f'
-
-# load pretty colors
-[ -e ~/.zsh-syntax ] && source ~/.zsh-syntax
 
 function _zsh_build_help() {
   # setup help files for builtins

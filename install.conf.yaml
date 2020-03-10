@@ -41,10 +41,25 @@
       path: zshrc
     ~/.oh-my-zsh:
       force: true
-      path: oh-my-zsh/
-    ~/.zsh-syntax:
-      force: true
-      path: zsh-syntax-highlighting-filetypes/zsh-syntax-highlighting-filetypes.zsh
+      path: oh-my-zsh
     ~/.git-user-config.json:
       force: true
       path: git-user-config.json
+    ~/.bat.conf:
+      force: true
+      path: bat.conf
+
+- create:
+  - ~/.oh-my-zsh/custom/themes
+  - ~/.oy-my-zsh/custom/plugins
+
+- link:
+    ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme:
+      force: true
+      path: spaceship-prompt/spaceship.zsh
+    ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions:
+      force: true
+      path: zsh-autosuggestions
+    ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting:
+      force: true
+      path: zsh-syntax-highlighting
