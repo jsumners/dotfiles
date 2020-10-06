@@ -73,6 +73,10 @@ if [ -d /usr/local/texlive ]; then
   fi
 fi
 
+if [ -d ~/Applications/VSCode/Visual\ Studio\ Code.app ]; then
+  export PATH=~/Applications/VSCode/Visual\ Studio\ Code.app/Contents/Resources/app/bin:${PATH}
+fi
+
 if [ -f ~/.fzf.${SHELL_NAME} ]; then
   source ~/.fzf.${SHELL_NAME}
 fi
@@ -80,3 +84,4 @@ fi
 if [ -f ~/.local_exports ]; then
   source ~/.local_exports
 fi
+
