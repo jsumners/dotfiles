@@ -41,7 +41,7 @@ elif type go > /dev/null; then
   fi
 fi
 
-if [ -d ~/.cargo ]; then
+if [[ -d ~/.cargo && -f ~/.cargo/env ]]; then
   source ~/.cargo/env
 fi
 
