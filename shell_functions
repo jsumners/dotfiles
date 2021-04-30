@@ -4,10 +4,11 @@
 function git-purge() {
   # https://stackoverflow.com/a/38404202/9789020
   # TODO: add bash version
-  echo "Warning: continuing will switch to \`master\` branch and dead branches will be forcibly removed."
+  local mainBranch=$(git remote show origin | grep 'HEAD branch' | cut -d':' -f2 | tr -d '[:space:]')
+  echo "Warning: continuing will switch to \`${mainBranch}\` branch and dead branches will be forcibly removed."
   read -s "key?Press any key to continue or Ctrl+C to exit..."
   if [ -n ${key} ]; then
-    git checkout master && \
+    git checkout ${mainBranch} && \
       git fetch -p && \
       git branch -vv | awk '/: gone]/{print $1}' | \
       xargs git branch -D
