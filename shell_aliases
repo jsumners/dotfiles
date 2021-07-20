@@ -22,6 +22,8 @@ alias dpostgres='docker run --rm -it -p 5432:5432 -e POSTGRES_PASSWORD=123456 -e
 alias dmysql='docker run --rm -it -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_ROOT_PASSWORD="" -e MYSQL_ROOT_HOST="%" mysql/mysql-server:5.7'
 alias dmysql8='docker run --rm -it -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_ROOT_PASSWORD="" -e MYSQL_ROOT_HOST="%" mysql/mysql-server:8.0'
 
+# https://twitter.com/jsumners79/status/1209636970911162370
+alias poke_xcode_tools='sudo rm -rf $(xcode-select -print-path) && xcode-select --install)'
 
 alias tmux='TERM=screen-256color-bce tmux -2'
 [[ $(type tmux) ]] && alias screen='tmux'
