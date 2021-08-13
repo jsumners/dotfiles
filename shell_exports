@@ -24,12 +24,10 @@ if [[ $(type python3) ]]; then
   export PATH="$(python3 -c 'import site; print(site.USER_BASE)')/bin:${PATH}"
 fi
 
-if [ -d ~/.gvm ]; then
-  source ~/.gvm/scripts/gvm
+if [[ -d ~/.go && -d ~/go ]]; then
+  export GOROOT=~/.go
+  export GOPATH=~/go
   export PATH=$PATH:$GOPATH/bin
-
-  gos=($(ls -1A ~/.gvm/gos))
-  gvm use ${gos[1]} > /dev/null
 elif type go > /dev/null; then
   gopath=$(dirname $(whence -c go))
   if [ "${gopath}" = "/opt/local/bin" ]; then # macports

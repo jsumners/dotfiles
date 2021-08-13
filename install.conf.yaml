@@ -52,8 +52,13 @@
 - create:
   - ~/.oh-my-zsh/custom/themes
   - ~/.oy-my-zsh/custom/plugins
+  - ~/go
+  - ~/.go
 
 - link:
+    ~/bin/g:
+      force: true
+      path: ./g/bin/g
     ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme:
       force: true
       path: spaceship-prompt/spaceship.zsh

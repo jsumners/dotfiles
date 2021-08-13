@@ -16,3 +16,6 @@
 [submodule "zsh-autosuggestions"]
 	path = zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "g"]
+	path = g
+	url = https://github.com/stefanmaric/g.git

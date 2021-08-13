@@ -82,6 +82,10 @@ source ~/.shell_functions
 # Do this before potential overrides
 source ${ZSH}/oh-my-zsh.sh
 
+# The `g=git` alias overrides `~/bin/g`.
+# Plus, I never use `g` for `git`.
+unalias -m 'g'
+
 # Check for updates after reading exports because HTTP/S proxies may be
 # set via local exports.
 zsh ~/.dotfiles/check_update.zsh
