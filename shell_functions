@@ -31,3 +31,13 @@ fi
 function install-base-ports() {
   sudo port setrequested ~/.dotfiles/ports.requested
 }
+
+# xcode
+function xcode-reset() {
+  echo "Warning: do no continue if you have the full Xcode installed."
+  read -s "key?Press any key to continue or Ctrl+C to exit ..."
+  if [ -n ${key} ]; then
+    sudo rm -rf $(xcode-select --print-path) && xcode-select --install
+  fi
+}
+
