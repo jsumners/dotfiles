@@ -19,7 +19,7 @@ alias pg_stop='sudo -u postgres /opt/local/lib/postgresql94/bin/pg_ctl stop -D /
 alias dpostgres='docker run --rm -it -p 5432:5432 -e POSTGRES_PASSWORD=123456 -e POSTGRES_USER=root postgres:alpine'
 
 # Run Dockerized MySQL that can be connected to from a host client
-alias dmysql='docker run --rm -it -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_ROOT_PASSWORD="" -e MYSQL_ROOT_HOST="%" mysql/mysql-server:5.7'
+alias dmysql='docker run --rm -it -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_ROOT_PASSWORD="" -e MYSQL_ROOT_HOST="%" mysql/mysql-server:5.7 --explicit_defaults_for_timestamp --log-error'
 alias dmysql8='docker run --rm -it -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_ROOT_PASSWORD="" -e MYSQL_ROOT_HOST="%" mysql/mysql-server:8.0'
 
 # https://twitter.com/jsumners79/status/1209636970911162370
