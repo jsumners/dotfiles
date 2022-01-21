@@ -1,9 +1,12 @@
-- clean: [ '~' ]
+- clean: ["~"]
 
 - shell:
-  - mkdir -p ~/bin
-  - ["git submodule update --init --recursive", "Installing submodules"]
-  - ["cd fzf && ./install --no-update-rc --completion --key-bindings", "Installing fuzzy finder"]
+    - mkdir -p ~/bin
+    - ["git submodule update --init --recursive", "Installing submodules"]
+    - [
+        "cd fzf && ./install --no-update-rc --completion --key-bindings",
+        "Installing fuzzy finder",
+      ]
 
 - link:
     ~/.bashrc:
@@ -50,10 +53,10 @@
       path: bat.conf
 
 - create:
-  - ~/.oh-my-zsh/custom/themes
-  - ~/.oy-my-zsh/custom/plugins
-  - ~/go
-  - ~/.go
+    - ~/.oh-my-zsh/custom/themes
+    - ~/.oy-my-zsh/custom/plugins
+    - ~/go
+    - ~/.go
 
 - link:
     ~/bin/g:
@@ -68,3 +71,7 @@
     ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting:
       force: true
       path: zsh-syntax-highlighting
+    ~/bin/jsc:
+      if: "[ -f /System/iOSSupport/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc ]"
+      force: true
+      path: /System/iOSSupport/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc
