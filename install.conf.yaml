@@ -75,3 +75,8 @@
       if: "[ -f /System/iOSSupport/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc ]"
       force: true
       path: /System/iOSSupport/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc
+    ~/bin/jsc:
+      if: "[ -f /System/iOSSupport/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc ]"
+      force: true
+      path: /System/iOSSupport/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc
+
