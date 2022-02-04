@@ -17,9 +17,9 @@ export PAGER='most'
 export BAT_CONFIG_PATH=~/.bat.conf
 
 # https://stackoverflow.com/a/54065289
-if [[ $(type python2) ]]; then
-  export PATH="$(python2 -c 'import site; print(site.USER_BASE)')/bin:${PATH}"
-fi
+# if [[ $(type python2) ]]; then
+#   export PATH="$(python2 -c 'import site; print(site.USER_BASE)')/bin:${PATH}"
+# fi
 if [[ $(type python3) ]]; then
   export PATH="$(python3 -c 'import site; print(site.USER_BASE)')/bin:${PATH}"
 fi
