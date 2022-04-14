@@ -43,6 +43,12 @@ if [[ -d ~/.cargo && -f ~/.cargo/env ]]; then
   source ~/.cargo/env
 fi
 
+if [ -d /Library/TeX/texbin ]; then
+  # BasicTeX has been installed
+  export PATH=/Library/TeX/texbin:${PATH}
+  export MANPATH=/Library/TeX/Distributions/.DefaultTeX/Contents/Man:${MANPATH}
+fi
+
 if [ -d ~/oracle -a -d ~/oracle/instantclient ]; then
   export DYLD_LIBRARY_PATH=~/oracle/instantclient:$DYLD_LIBRARY_PATH
   export SQLPATH="${HOME}/oracle/instantclient"
