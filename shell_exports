@@ -16,6 +16,10 @@ export PAGER='most'
 # Do not wrap next value in quotes or "bat" will not interpret correctly
 export BAT_CONFIG_PATH=~/.bat.conf
 
+if [[ -d /opt/homebrew && -d /opt/homebrew/bin ]]; then
+  export PATH="/opt/homebrew/bin:${PATH}"
+fi
+
 # https://stackoverflow.com/a/54065289
 # if [[ $(type python2) ]]; then
 #   export PATH="$(python2 -c 'import site; print(site.USER_BASE)')/bin:${PATH}"
