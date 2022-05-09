@@ -20,6 +20,13 @@ if [[ -d /opt/homebrew && -d /opt/homebrew/bin ]]; then
   export PATH="/opt/homebrew/bin:${PATH}"
 fi
 
+if [[ $(type gpg) ]]; then
+  # See:
+  # + https://stackoverflow.com/questions/41052538/git-error-gpg-failed-to-sign-data
+  # + https://github.com/keybase/keybase-issues/issues/2798
+  export GPG_TTY=$(tty)
+fi
+
 # https://stackoverflow.com/a/54065289
 # if [[ $(type python2) ]]; then
 #   export PATH="$(python2 -c 'import site; print(site.USER_BASE)')/bin:${PATH}"
