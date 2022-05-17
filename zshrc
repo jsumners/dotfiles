@@ -79,6 +79,13 @@ source ~/.shell_exports
 source ~/.shell_aliases
 source ~/.shell_functions
 
+# See https://docs.brew.sh/Shell-Completion
+# We load it here because zprofile is loaded before zshrc and we need
+# all of the PATH setup before this snippet.
+if type brew &>/dev/null; then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fi
+
 # Do this before potential overrides
 source ${ZSH}/oh-my-zsh.sh
 
