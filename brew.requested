@@ -15,3 +15,6 @@ smartmontools
 the_silver_searcher
 yt-dlp
 zsh
+
+--cask 1password/tap/1password-cli
+
