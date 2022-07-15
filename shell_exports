@@ -18,6 +18,10 @@ export BAT_CONFIG_PATH=~/.bat.conf
 
 if [[ -d /opt/homebrew && -d /opt/homebrew/bin ]]; then
   export PATH="/opt/homebrew/bin:${PATH}"
+
+  if [[ -d /opt/homebrew/opt/libressl/bin ]]; then
+    export PATH="/opt/homebrew/opt/libressl/bin:${PATH}"
+  fi
 fi
 
 if [[ $(type gpg) ]]; then

@@ -5,6 +5,7 @@ git
 gnupg2
 jq
 less
+libressl
 most
 ncdu
 pandoc
