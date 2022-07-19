@@ -74,6 +74,14 @@ HIST_STAMPS="yyyy-mm-dd"
 export FZF_BASE=$(dirname $(readlink ~/.zshrc))/fzf
 plugins=(fzf git zsh-autosuggestions zsh-syntax-highlighting)
 
+# Some history management configuration based upon
+# https://web.archive.org/web/20220311224939/https://www.soberkoder.com/better-zsh-history/
+export HISTFILESIZE=1000000000
+export HISTSIZE=1000000000
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+
+
 # User configuration
 source ~/.shell_exports
 source ~/.shell_aliases
