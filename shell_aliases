@@ -3,8 +3,10 @@
 [[ $(ls --color=always 2>/dev/null) ]] && alias ls='ls --color=always'
 [[ $(type vim) ]] && alias vi='vim'
 
-if [[ $(type mdfind) && $(mdfind -name Typora kind:application) ]]; then
-  alias typora="open -a typora"
+if [ ${IS_MAC} -eq 0 ]; then
+  if [[ $(type mdfind) && $(mdfind -name Typora kind:application) ]]; then
+    alias typora="open -a typora"
+  fi
 fi
 
 # nginx

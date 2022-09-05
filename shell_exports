@@ -16,11 +16,28 @@ export PAGER='most'
 # Do not wrap next value in quotes or "bat" will not interpret correctly
 export BAT_CONFIG_PATH=~/.bat.conf
 
-if [[ -d /opt/homebrew && -d /opt/homebrew/bin ]]; then
-  export PATH="/opt/homebrew/bin:${PATH}"
+export IS_MAC=$(test "$(uname -s)" = "Darwin"; echo $?)
+if [ ${IS_MAC} -eq 0 ]; then
+  local cpu_vendor=$(sysctl -n machdep.cpu.vendor)
+  if [ ${cpu_vendor} = "GenuineIntel" ]; then
+    export IS_APPLE_CPU=1
+  else
+    export IS_APPLE_CPU=0
+  fi
+fi
 
-  if [[ -d /opt/homebrew/opt/libressl/bin ]]; then
-    export PATH="/opt/homebrew/opt/libressl/bin:${PATH}"
+if [ ${IS_MAC} -eq 0 ]; then
+  if [ ${IS_APPLE_CPU} -eq 0 ]; then
+    export HOMEBREW_PATH=/opt/homebrew
+  else
+    export HOMEBREW_PATH=/usr/local
+  fi
+fi
+if [[ -d ${HOMEBREW_PATH} && -d ${HOMEBREW_PATH}/bin ]]; then
+  export PATH="${HOMEBREW_PATH}/bin:${PATH}"
+
+  if [[ -d ${HOMEBREW_PATH}/opt/libressl/bin ]]; then
+    export PATH="${HOMEBREW_PATH}/opt/libressl/bin:${PATH}"
   fi
 fi
 
