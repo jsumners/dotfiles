@@ -129,3 +129,7 @@ function _zsh_build_help() {
 }
 # asynchronus load to reduce login time
 _zsh_build_help &!
+
+# setting for gup command (auto generate)
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit -i

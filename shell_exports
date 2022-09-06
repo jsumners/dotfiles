@@ -18,8 +18,8 @@ export BAT_CONFIG_PATH=~/.bat.conf
 
 export IS_MAC=$(test "$(uname -s)" = "Darwin"; echo $?)
 if [ ${IS_MAC} -eq 0 ]; then
-  local cpu_vendor=$(sysctl -n machdep.cpu.vendor)
-  if [ ${cpu_vendor} = "GenuineIntel" ]; then
+  local cpu_vendor=$(sysctl -n machdep.cpu.brand_string)
+  if [[ "${cpu_vendor}" =~ "Intel" ]]; then
     export IS_APPLE_CPU=1
   else
     export IS_APPLE_CPU=0
