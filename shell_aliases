@@ -4,7 +4,9 @@
 [[ $(type vim) ]] && alias vi='vim'
 
 if [ ${IS_MAC} -eq 0 ]; then
-  if [[ $(type mdfind) && $(mdfind -name Typora kind:application) ]]; then
+  # mdfind in macOS 13 has started barfing up nonsense with every usage.
+  # https://www.reddit.com/r/MacOS/comments/zq36l1/whats_up_with_mdfind_warning_on_console
+  if [[ $(type mdfind) && $(mdfind -name Typora kind:application 2>/dev/null) ]]; then
     alias typora="open -a typora"
   fi
 fi
