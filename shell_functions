@@ -47,3 +47,17 @@ function install-lint-standard() {
     eslint-plugin-n eslint-plugin-node eslint-plugin-promise
 }
 
+function install-eslintrc() {
+cat << EOF > .eslintrc
+{
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+
+  "extends": [
+    "standard"
+  ]
+}
+EOF
+}
+
