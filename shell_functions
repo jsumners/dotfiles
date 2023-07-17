@@ -41,3 +41,9 @@ function xcode-reset() {
   fi
 }
 
+# node
+function install-lint-standard() {
+  npm i --save-dev eslint eslint-config-standard eslint-plugin-import \
+    eslint-plugin-n eslint-plugin-node eslint-plugin-promise
+}
+
