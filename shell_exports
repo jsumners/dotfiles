@@ -41,6 +41,14 @@ if [[ -d ${HOMEBREW_PATH} && -d ${HOMEBREW_PATH}/bin ]]; then
   fi
 fi
 
+# Add Sublime Text CLI to path
+if [ ${IS_MAC} -eq 0 ]; then
+ local SUBL=$(mdfind -name Sublime kind:application 2>/dev/null)
+ if [ -n ${SUBL} ]; then
+  export PATH="${SUBL}/Contents/SharedSupport/bin:${PATH}"
+ fi
+fi
+
 if [[ $(type gpg) ]]; then
   # See:
   # + https://stackoverflow.com/questions/41052538/git-error-gpg-failed-to-sign-data
