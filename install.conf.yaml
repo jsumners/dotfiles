@@ -71,6 +71,11 @@
     ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting:
       force: true
       path: zsh-syntax-highlighting
+    ~/bin/install-sshpass:
+      force: true
+      path: install-sshpass.sh
+
+- link:
     ~/bin/jsc:
       if: "[ -f /System/iOSSupport/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc ]"
       force: true
@@ -79,4 +84,8 @@
       if: "[ -f /System/iOSSupport/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc ]"
       force: true
       path: /System/iOSSupport/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc
+    ~/bin/jsc:
+      if: "[ -f /System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc ]"
+      force: true
+      path: /System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc
 
