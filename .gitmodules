@@ -1,21 +1,24 @@
 [submodule "dotbot"]
-	path = dotbot
+	path = submodules/dotbot
 	url = https://github.com/anishathalye/dotbot
 [submodule "oh-my-zsh"]
-	path = oh-my-zsh
+	path = submodules/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
 [submodule "fzf"]
-	path = fzf
+	path = submodules/fzf
 	url = https://github.com/junegunn/fzf.git
 [submodule "spaceship-prompt"]
-	path = spaceship-prompt
+	path = submodules/spaceship-prompt
 	url = https://github.com/denysdovhan/spaceship-prompt.git
 [submodule "zsh-syntax-highlighting"]
-	path = zsh-syntax-highlighting
+	path = submodules/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule "zsh-autosuggestions"]
-	path = zsh-autosuggestions
+	path = submodules/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
 [submodule "g"]
-	path = g
+	path = submodules/g
 	url = https://github.com/stefanmaric/g.git
+[submodule "vim-plug"]
+	path = submodules/vim-plug
+	url = git@github.com:junegunn/vim-plug.git

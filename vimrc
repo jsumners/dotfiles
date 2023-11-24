@@ -1,3 +1,8 @@
+" Seup Vim plugin manager
+call plug#begin()
+  Plug 'pangloss/vim-javascript'
+call plug#end()
+
 " Set the title string to the current file being edited
 let &titlestring = hostname() . "[vim(" . expand("%:t") . ")]"
 if &term == "screen" || &term == "xterm"

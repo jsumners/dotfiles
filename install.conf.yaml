@@ -4,7 +4,7 @@
     - mkdir -p ~/bin
     - ["git submodule update --init --recursive", "Installing submodules"]
     - [
-        "cd fzf && ./install --no-update-rc --completion --key-bindings",
+        "cd submodules/fzf && ./install --no-update-rc --completion --key-bindings",
         "Installing fuzzy finder",
       ]
 
@@ -36,6 +36,9 @@
     ~/.tmux.conf:
       force: true
       path: tmux.conf
+    ~/.vim:
+      force: true
+      path: vim
     ~/.vimrc:
       force: true
       path: vimrc
@@ -44,7 +47,7 @@
       path: zshrc
     ~/.oh-my-zsh:
       force: true
-      path: oh-my-zsh
+      path: submodules/oh-my-zsh
     ~/.git-user-config.json:
       force: true
       path: git-user-config.json
@@ -61,19 +64,22 @@
 - link:
     ~/bin/g:
       force: true
-      path: ./g/bin/g
+      path: ./submodules/g/bin/g
     ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme:
       force: true
-      path: spaceship-prompt/spaceship.zsh
+      path: submodules/spaceship-prompt/spaceship.zsh
     ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions:
       force: true
-      path: zsh-autosuggestions
+      path: submodules/zsh-autosuggestions
     ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting:
       force: true
-      path: zsh-syntax-highlighting
+      path: submodules/zsh-syntax-highlighting
+    ~/.vim/autoload/plug.vim:
+      force: true
+      path: submodules/vim-plug/plug.vim
     ~/bin/install-sshpass:
       force: true
-      path: install-sshpass.sh
+      path: submodules/install-sshpass.sh
 
 - link:
     ~/bin/jsc:
