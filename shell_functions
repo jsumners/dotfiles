@@ -15,6 +15,17 @@ function git-purge() {
   fi
 }
 
+function git-sync() {
+  local mainBranch=$(git remote show origin | grep 'HEAD branch' | cut -d':' -f2 | tr -d '[:space:]')
+  echo "Warning: continuing will switch to \`${mainBranch}\` branch, pull from upstream, and push to origin."
+  read -s "key?Press any key to continue or Ctrl+C to exit..."
+  if [ -m ${key} ]; then
+    git checkout ${mainBranch} && \
+      git pull upstream ${mainBranch} && \
+      git push
+  fi
+}
+
 # docker
 function docker-purge-images() {
   echo "Warning: this will delete all containers and images."
