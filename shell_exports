@@ -49,6 +49,11 @@ if [ ${IS_MAC} -eq 0 ]; then
  fi
 fi
 
+if [[ $(type delta) ]]; then
+  # https://dandavison.github.io/delta/environment-variables.html#pager-environment-variables
+  export DELTA_PAGER="less -R"
+fi
+
 if [[ $(type gpg) ]]; then
   # See:
   # + https://stackoverflow.com/questions/41052538/git-error-gpg-failed-to-sign-data

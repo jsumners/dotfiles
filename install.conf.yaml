@@ -18,6 +18,9 @@
     ~/.bash_profile:
       force: true
       path: bash_profile
+    ~/.gitconfig:
+      force: true
+      path: gitconfig
     ~/.inputrc:
       force: true
       path: inputrc
