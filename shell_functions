@@ -67,7 +67,11 @@ cat << EOF > .eslintrc
 
   "extends": [
     "standard"
-  ]
+  ],
+
+  "rules": {
+    "import/first": "off"
+  }
 }
 EOF
 }
