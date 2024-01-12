@@ -21,4 +21,4 @@
 	url = https://github.com/stefanmaric/g.git
 [submodule "vim-plug"]
 	path = submodules/vim-plug
-	url = git@github.com:junegunn/vim-plug.git
+	url = https://github.com/junegunn/vim-plug.git
