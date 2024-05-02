@@ -43,7 +43,7 @@ fi
 
 # Add Sublime Text CLI to path
 if [ ${IS_MAC} -eq 0 ]; then
- local SUBL=$(mdfind -name Sublime kind:application 2>/dev/null)
+ local SUBL=$(mdfind -name "Sublime Text" kind:application 2>/dev/null)
  if [ -n "${SUBL}" ]; then
   export PATH="${SUBL}/Contents/SharedSupport/bin:${PATH}"
  fi
