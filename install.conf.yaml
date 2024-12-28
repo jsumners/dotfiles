@@ -63,6 +63,7 @@
     - ~/.oy-my-zsh/custom/plugins
     - ~/go
     - ~/.go
+    - ~/.config/ghostty
 
 - link:
     ~/bin/g:
@@ -83,6 +84,9 @@
     ~/bin/install-sshpass:
       force: true
       path: submodules/install-sshpass.sh
+    ~/.config/ghostty/config:
+      force: true
+      path: ghostty.config
 
 - link:
     ~/bin/jsc:
