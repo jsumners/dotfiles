@@ -1,0 +1,2 @@
+#!/bin/bash
+\cat brew.requested | xargs -L1 brew install
