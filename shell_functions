@@ -2,15 +2,20 @@
 
 # git
 function git-purge() {
-  # https://stackoverflow.com/a/38404202/9789020
+  # https://stackoverflow.com/a/47939403
   # TODO: add bash version
   local mainBranch=$(git remote show origin | grep 'HEAD branch' | cut -d':' -f2 | tr -d '[:space:]')
   echo "Warning: continuing will switch to \`${mainBranch}\` branch and dead branches will be forcibly removed."
   read -s "key?Press any key to continue or Ctrl+C to exit..."
   if [ -n ${key} ]; then
+    # The `for-each-ref` iterates each branch and lists out only the names of
+    # the ones that have been removed. The list is then filtered to remove
+    # empty lines and finally fed into git to remove the local branches.
     git checkout ${mainBranch} && \
       git fetch -p && \
-      git branch -vv | awk '/: gone]/{print $1}' | \
+      git for-each-ref \
+        --format '%(if:equals=gone)%(upstream:track,nobracket)%(then)%(refname:short)%(end)' refs/heads/ \
+        | awk '/[^[:space:]]/' |
       xargs git branch -D
   fi
 }
